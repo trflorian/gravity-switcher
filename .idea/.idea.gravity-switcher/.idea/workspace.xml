@@ -27,6 +27,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerNameText.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerNameCanvas.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameCamera.cs" />
       </list>
     </option>
   </component>
@@ -77,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612461199013</updated>
       <workItem from="1612461240086" duration="629000" />
-      <workItem from="1612470224408" duration="1131000" />
+      <workItem from="1612470224408" duration="1471000" />
     </task>
     <servers />
   </component>
@@ -102,5 +103,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1612470918431" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1612471512983">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1612471512983" />
   </component>
 </project>
