@@ -200,6 +200,7 @@
             <e p="GameManager.cs" t="Include" />
             <e p="LevelGenerator.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
+            <e p="PlayerNameCanvas.cs" t="Include" />
           </e>
           <e p="GameOver" t="Include">
             <e p="GameOverManager.cs" t="Include" />

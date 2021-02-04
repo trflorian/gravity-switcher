@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
@@ -16,9 +17,11 @@ namespace Game
     public class PlayerController : MonoBehaviourPun, IPunObservable
     {
         public static HashSet<Player> AlivePlayers = new HashSet<Player>();
+
+        public event UnityAction<GravityDirection> GravitySwitchEvent; 
         
         public const float GravityScale = 2f;
-        public const float FlipDirectionInitialVelocity = 5f;
+        public const float FlipDirectionInitialVelocity = 4f;
 
         [SerializeField] private SpriteRenderer playerSpriteRenderer;
         
@@ -105,6 +108,8 @@ namespace Game
             var velocity = _rigidbody.velocity;
             velocity.y = -FlipDirectionInitialVelocity * directionSign;
             _rigidbody.velocity = velocity;
+            
+            GravitySwitchEvent?.Invoke(_currentGravityDirection);
         }
 
         public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
