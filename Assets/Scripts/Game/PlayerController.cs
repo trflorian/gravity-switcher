@@ -38,9 +38,13 @@ namespace Game
             _camera = Camera.main;
             _isAlive = true;
             _rigidbody = GetComponent<Rigidbody2D>();
+
 #if !UNITY_EDITOR
-            EnhancedTouchSupport.Enable();
-            Touch.onFingerDown += OnScreenClicked;
+            if (photonView.IsMine)
+            {
+                EnhancedTouchSupport.Enable();
+                Touch.onFingerDown += OnScreenClicked;
+            }
 #endif
         }
 
@@ -50,8 +54,13 @@ namespace Game
             if (!photonView.IsMine) return;
             SwitchGravityDirection();
         }
-#endif
 
+        private void OnDestroy()
+        {
+            Touch.onFingerDown -= OnScreenClicked;
+        }
+#endif
+        
         private void Update()
         {
             if (!photonView.IsMine) return;
