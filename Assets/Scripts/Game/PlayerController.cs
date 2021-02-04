@@ -24,6 +24,7 @@ namespace Game
         public const float FlipDirectionInitialVelocity = 4f;
 
         [SerializeField] private SpriteRenderer playerSpriteRenderer;
+        [SerializeField] private Transform colliderObject;
         
         public enum GravityDirection
         {
@@ -66,7 +67,7 @@ namespace Game
 
         private void FixedUpdate()
         {
-            if (GameManager.gameStarted)
+            if (GameManager.GameStarted)
             {
                 var worldCenter = _camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
                 var distanceToCenter = worldCenter - transform.position;
@@ -114,6 +115,8 @@ namespace Game
             var velocity = _rigidbody.velocity;
             velocity.y = -FlipDirectionInitialVelocity * directionSign;
             _rigidbody.velocity = velocity;
+
+            colliderObject.transform.localScale = new Vector3(1, directionSign, 1);
             
             GravitySwitchEvent?.Invoke(_currentGravityDirection);
         }

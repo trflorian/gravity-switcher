@@ -17,7 +17,7 @@ namespace Game
 
         private void Update()
         {
-            if (GameManager.gameStarted)
+            if (GameManager.GameStarted)
             {
                 transform.position += new Vector3(1, 0, 0) * (Time.deltaTime * MoveSpeed);
                 MoveSpeed += Time.deltaTime * 0.2f;

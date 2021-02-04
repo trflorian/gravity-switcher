@@ -14,7 +14,9 @@ namespace Game
     /// </summary>
     public class GameManager : MonoBehaviourPunCallbacks
     {
-        public static bool gameStarted;
+        public static event UnityAction<int> CountdownChanged; 
+        
+        public static bool GameStarted;
         
         private const string StartTimeKey = "StartTime";
         private const int StartTimerCountdown = 3;
@@ -26,7 +28,7 @@ namespace Game
 
         private void Start()
         {
-            gameStarted = false;
+            GameStarted = false;
             
             if(!LocalPlayerInstance) SpawnLocalPlayer();
             else
@@ -43,12 +45,23 @@ namespace Game
 
         private IEnumerator StartCountdown(int startTime)
         {
-            while (PhotonNetwork.ServerTimestamp - startTime < StartTimerCountdown * 1000)
+            float countdownTime;
+            int currentCountdownDigit = -1;
+            CountdownChanged?.Invoke(StartTimerCountdown);
+            while ((countdownTime = (PhotonNetwork.ServerTimestamp - startTime)/1000f) < StartTimerCountdown)
             {
+                int countdownDigit = StartTimerCountdown - Mathf.FloorToInt(countdownTime);
+                if (countdownDigit != currentCountdownDigit)
+                {
+                    currentCountdownDigit = countdownDigit;
+                    CountdownChanged?.Invoke(currentCountdownDigit);
+                }
+
                 yield return null;
             }
+            CountdownChanged?.Invoke(0);
 
-            gameStarted = true;
+            GameStarted = true;
         }
 
         private void SetStartTimer()

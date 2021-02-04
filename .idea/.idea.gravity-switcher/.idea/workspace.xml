@@ -18,7 +18,9 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/PlayerAnimator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/PlayerNameCanvas.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game/CountdownTimerUI.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -26,9 +28,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerNameText.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerNameCanvas.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/CountdownTimerUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerController.cs" />
       </list>
     </option>
   </component>
@@ -79,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612461199013</updated>
       <workItem from="1612461240086" duration="629000" />
-      <workItem from="1612470224408" duration="3022000" />
+      <workItem from="1612470224408" duration="4380000" />
     </task>
     <servers />
   </component>
