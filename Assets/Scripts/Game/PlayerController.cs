@@ -127,10 +127,16 @@ namespace Game
             {
                 var newGravityDirection = (GravityDirection)stream.ReceiveNext();
                 SetGravityDirection(newGravityDirection);
+                _rigidbody.velocity = (Vector2) stream.ReceiveNext();
+                var newRigidbodyPosition = (Vector2) stream.ReceiveNext();
+                var timeLag = (float) (PhotonNetwork.Time - info.SentServerTime);
+                _rigidbody.MovePosition(newRigidbodyPosition + timeLag * _rigidbody.velocity);
             }
             else
             {
                 stream.SendNext(_currentGravityDirection);
+                stream.SendNext(_rigidbody.velocity);
+                stream.SendNext(_rigidbody.position);
             }
         }
 

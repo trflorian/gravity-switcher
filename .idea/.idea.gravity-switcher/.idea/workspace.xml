@@ -32,6 +32,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/CountdownTimerUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Game/LevelGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Game/PlayerController.cs" />
       </list>
     </option>
@@ -83,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612461199013</updated>
       <workItem from="1612461240086" duration="629000" />
-      <workItem from="1612470224408" duration="4380000" />
+      <workItem from="1612470224408" duration="7970000" />
     </task>
     <servers />
   </component>
@@ -108,9 +109,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="297" y="151" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1612470918431" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1612473271308">
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1612477193099">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1612473271308" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1612477193099" />
   </component>
 </project>

@@ -42,7 +42,7 @@ namespace Game
         {
             if (!PhotonNetwork.IsMasterClient) return;
             
-            var currentWorldPos = grid.CellToWorld(new Vector3Int(_currentX-5, 0, 0));
+            var currentWorldPos = grid.CellToWorld(new Vector3Int(_currentX-10, 0, 0));
             var screenPos = _mainCamera.WorldToViewportPoint(currentWorldPos);
             if(screenPos.x < 1f) GenerateNextStructure();
         }

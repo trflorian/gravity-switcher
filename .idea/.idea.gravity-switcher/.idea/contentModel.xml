@@ -200,6 +200,7 @@
             <e p="GameCamera.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="LevelGenerator.cs" t="Include" />
+            <e p="NetworkRigidbody.cs" t="Include" />
             <e p="PlayerAnimator.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerNameCanvas.cs" t="Include" />
