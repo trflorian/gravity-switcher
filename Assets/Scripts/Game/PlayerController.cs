@@ -63,19 +63,25 @@ namespace Game
             Touch.onFingerDown -= OnScreenClicked;
         }
 #endif
-        
+
+        private void FixedUpdate()
+        {
+            if (GameManager.gameStarted)
+            {
+                var worldCenter = _camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
+                var distanceToCenter = worldCenter - transform.position;
+                var additionalSpeed = distanceToCenter.x * 0.2f;
+                
+                var vel = _rigidbody.velocity;
+                vel.x = GameCamera.MoveSpeed + additionalSpeed;
+                _rigidbody.velocity = vel;
+            }
+        }
+
         private void Update()
         {
             if (!photonView.IsMine) return;
             if (!_isAlive) return;
-
-            var worldCenter = _camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
-            var distanceToCenter = worldCenter - transform.position;
-            var additionalSpeed = distanceToCenter.x * 0.2f;
-            
-            var vel = _rigidbody.velocity;
-            vel.x = GameCamera.MoveSpeed + additionalSpeed;
-            _rigidbody.velocity = vel;
 
             var playerScreenPos = _camera.WorldToViewportPoint(transform.position);
             if (playerScreenPos.y < -0.1f || playerScreenPos.y > 1.1f || playerScreenPos.x < 0.02f)
