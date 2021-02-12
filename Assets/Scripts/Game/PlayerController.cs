@@ -130,7 +130,16 @@ namespace Game
                 _rigidbody.velocity = (Vector2) stream.ReceiveNext();
                 var newRigidbodyPosition = (Vector2) stream.ReceiveNext();
                 var timeLag = (float) (PhotonNetwork.Time - info.SentServerTime);
-                _rigidbody.MovePosition(newRigidbodyPosition + timeLag * _rigidbody.velocity);
+                var movementDelta = _rigidbody.velocity * timeLag;
+                var hits = new RaycastHit2D[64];
+                var minHitDist = movementDelta.magnitude;
+                var hitCount = _rigidbody.Cast(movementDelta, hits, minHitDist);
+                for (int i = 0; i < hitCount; i++)
+                {
+                    minHitDist = Mathf.Min(minHitDist, hits[i].distance);
+                }
+                movementDelta = movementDelta.normalized * minHitDist;
+                _rigidbody.MovePosition(newRigidbodyPosition + movementDelta);
             }
             else
             {
