@@ -128,9 +128,10 @@ namespace Game
                 var newGravityDirection = (GravityDirection)stream.ReceiveNext();
                 SetGravityDirection(newGravityDirection);
                 _rigidbody.velocity = (Vector2) stream.ReceiveNext();
+                var oldPosition = _rigidbody.position;
                 var newRigidbodyPosition = (Vector2) stream.ReceiveNext();
                 var timeLag = (float) (PhotonNetwork.Time - info.SentServerTime);
-                var movementDelta = _rigidbody.velocity * timeLag;
+                var movementDelta = (_rigidbody.velocity * timeLag) + newRigidbodyPosition - oldPosition;
                 var hits = new RaycastHit2D[64];
                 var minHitDist = movementDelta.magnitude;
                 var hitCount = _rigidbody.Cast(movementDelta, hits, minHitDist);
@@ -139,7 +140,7 @@ namespace Game
                     minHitDist = Mathf.Min(minHitDist, hits[i].distance);
                 }
                 movementDelta = movementDelta.normalized * minHitDist;
-                _rigidbody.MovePosition(newRigidbodyPosition + movementDelta);
+                _rigidbody.MovePosition(oldPosition + movementDelta);
             }
             else
             {
